@@ -1,4 +1,6 @@
 module "cluster" {
+  count = 0
+
   source             = "../modules/eks"
   kubernetes_version = "1.25"
   cluster_name       = "main"

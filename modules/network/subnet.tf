@@ -47,3 +47,10 @@ resource "aws_subnet" "public" {
 
   map_public_ip_on_launch = true
 }
+
+resource "aws_route_table_association" "public_internet" {
+  count = var.public_subnet_ct
+
+  subnet_id      = aws_subnet.public[count.index].id
+  route_table_id = aws_route_table.public.id
+}

@@ -11,3 +11,10 @@ variable "public_key_path" {
   nullable    = true
   type        = string
 }
+
+variable "eks_create" {
+  default     = false
+  description = "Whether or not to create the EKS cluster"
+  nullable    = false
+  type        = bool
+}
