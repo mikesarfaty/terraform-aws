@@ -24,6 +24,14 @@ resource "aws_launch_template" "main" {
   image_id    = data.aws_ami.ubuntu-22.id
   key_name    = data.aws_key_pair.main.key_name
 
+  block_device_mappings {
+    device_name = "/dev/sdf"
+
+    ebs {
+      volume_size = 20
+    }
+  }
+
   iam_instance_profile {
     arn = aws_iam_instance_profile.main.arn
   }
